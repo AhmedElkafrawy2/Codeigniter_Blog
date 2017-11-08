@@ -7,7 +7,11 @@
     
     display: block;
 }
-
+.image-post{
+    
+    width: 200px !important;
+    height: 200px !important;
+}
 /* create post section */
 .post-image{
     

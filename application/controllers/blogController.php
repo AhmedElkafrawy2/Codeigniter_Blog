@@ -23,15 +23,17 @@ class blogController extends CI_Controller {
                 $isadmin   = $_SESSION['is_admin'];
                 
                 $data = array(
-                    "user_id" => $user_id,
-                    "username" => $username,
+                    "user_id"   => $user_id,
+                    "username"  => $username,
                     "useremail" => $useremail,
-                    "isadmin" => $isadmin,
+                    "isadmin"   => $isadmin,
+                    "posts"     =>  $this->post_model->getallposts()
                 );
                 
-                // check if the user is logged in
-             
-               
+               // get all posts from post model
+                
+                //$posts = $this->post_model->getallposts();
+                
 		$this->load->view('App/header');
 		$this->load->view('blog',$data);
 		$this->load->view('App/footer');
@@ -86,7 +88,7 @@ class blogController extends CI_Controller {
                         $this->load->library('upload', $config);
 
 
-                        if (isset($_POST['post-image']) && !$this->upload->do_upload('post-image'))
+                        if ( !$this->upload->do_upload('post-image'))
                         {
                                 $error = array('error' => $this->upload->display_errors());
                                 $this->load->view('App/header');
@@ -97,7 +99,8 @@ class blogController extends CI_Controller {
                         else
                         {
                                 $data = array('upload_data' => $this->upload->data());
-                                $postimage = base_url() ."uploads/" .$data['upload_data']['file_name'];
+                                $postimage = base_url() ."uploads/" . $data['upload_data']['file_name'];
+                                
                                 //$this->load->view('createpostform', $data);
                         }
                         

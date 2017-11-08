@@ -28,6 +28,25 @@ class post_model extends CI_Model {
 		return $this->db->insert('posts', $data);
 		
 	}
+        
+        
+        public function getallposts(){
+            
+            	$this->db->select("*");
+		$this->db->from('posts');
+		$query = $this->db->get();
+		return $query->result();
+                
+        }
+        
+        public function getpostnamefromid($id){
+            
+                $this->db->select('username');
+		$this->db->from('users');
+		$this->db->where('id', $id);
+		return $this->db->get()->row('username');
+            
+        }
 	
 
 	public function resolve_user_login($username, $password) {
