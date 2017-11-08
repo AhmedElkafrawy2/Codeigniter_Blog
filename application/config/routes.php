@@ -57,9 +57,23 @@ $route['translate_uri_dashes'] = FALSE;
 
 // routing to login controller
 $route['login'] = 'loginController';
+$route['postlogin'] = 'loginController/postlogin';
 
 // register controller routing
 $route['register'] = 'registerController';
 $route['userregister'] = 'registerController/postregister';
+
 // route to blog home page
 $route['home'] = 'blogController';
+
+// route to return  create post form
+$route['createpost'] = 'blogController/createpostform';
+
+// route to insert post data into database
+$route['insertpost'] = 'blogController/insertpost';
+
+// route to display image from ajax request
+$route['displayimage'] = 'blogController/displayimage';
+
+// log out routing
+$route['logout'] = 'blogController/logout';

@@ -11,6 +11,11 @@ class registerController extends CI_Controller {
             // load user modal 
             parent::__construct();
             $this->load->model('user_model');
+            if($this->session->userdata('logged_in')){
+            
+              redirect("/home");
+            
+            }
         }
         
         
@@ -62,6 +67,7 @@ class registerController extends CI_Controller {
                                 // set session user datas
 				$_SESSION['user_id']      = (int)$user->id;
 				$_SESSION['username']     = (string)$user->username;
+				$_SESSION['email']     = (string)$user->email;
 				$_SESSION['logged_in']    = (bool)true;
 				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
 				$_SESSION['is_admin']     = (bool)$user->is_admin;

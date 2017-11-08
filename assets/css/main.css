@@ -1,0 +1,24 @@
+/* home page section */
+.about-fixed{
+    
+    margin-left: -75px;
+}
+.show_menu{
+    
+    display: block;
+}
+
+/* create post section */
+.post-image{
+    
+    display: none !important;
+}
+.display_image_div{
+    
+    display: none;
+}
+.displayed_image{
+    
+    width: 150px;
+    height: 150px;
+}

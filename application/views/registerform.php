@@ -22,10 +22,12 @@
 			<h1>Register Form</h1>
                                          
 			<div>
-                            <input type="text" name="username" placeholder="Username" required="" id="register-username" />
+                            <input type="text" name="username" 
+                                   value="<?=set_value('username')?>" placeholder="Username" required="" id="register-username" />
 			</div>
 			<div>
-                            <input type="email" name="email" placeholder="Email" required="" id="register-email" />
+                            <input type="email" name="email" 
+                                  value="<?=set_value('email')?>" placeholder="Email" required="" id="register-email" />
 			</div>
 			<div>
                             <input type="password" name="password" placeholder="Password" required="" id="register-password" />
@@ -42,9 +44,4 @@
 	
 	</section><!-- content -->
 </div><!-- container -->
-</body>
-  
-    <script  src="js/index.js"></script>
 
-</body>
-</html>

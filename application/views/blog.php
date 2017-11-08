@@ -1,10 +1,10 @@
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- Preloader Start -->
     <div class="preloader">
         <div class="rounder"></div>
     </div>
     <!-- Preloader End -->
-
+    
     <div id="main">
         <div class="container">
             <div class="row">
@@ -16,13 +16,12 @@
                    <div class="about-fixed">
                     
                      <div class="my-pic">
-                        <img src="<?php echo base_url() ?>assets/images/pic/my-pic.png" alt="">
-                        <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
-                         <div id="menu" class="collapse">
+            
+                         <div id="menu"  class="show_menu collapse">
                            <ul class="menu-link">
-                               <li><a href="about.html">About</a></li>
-                               <li><a href="work.html">Work</a></li>
-                               <li><a href="contact.html">Contact</a></li>
+                               <li><a href="about.html">Profile</a></li>
+                               <li><a href="<?= base_url() ?>createpost">Make Post</a></li>
+                               <li><a href="<?= base_url() ?>logout">Log Out</a></li>
                             </ul>
                          </div>
                      </div>
@@ -32,16 +31,11 @@
                      <div class="my-detail">
                     	
                         <div class="white-spacing">
-                            <h1>Alex Parker</h1>
-                            <span>Web Developer</span>
+                            <h1><?php echo $username ?></h1>
+                            
                         </div> 
                        
-                       <ul class="social-icon">
-                         <li><a href="#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                         <li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                         <li><a href="#" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                         <li><a href="#" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
-                        </ul>
+                
 
                     </div>
                   </div>
@@ -59,7 +53,7 @@
                     		
                             
                             <div class="sub-title">
-                           		<h2>My Blog</h2>
+                                <h2>Blog Posts</h2>
                                 <a href="contact.html"><i class="icon-envelope"></i></a>
                              </div>
                             
@@ -187,21 +181,7 @@
                          </div>
                          
                         
-                        
-                        <!-- Subscribe Form Start -->
-                        <div class="col-md-8 col-md-offset-2">
-                           <form id="mc-form" method="post" action="http://uipasta.us14.list-manage.com/subscribe/post?u=854825d502cdc101233c08a21&amp;id=86e84d44b7">
-								
-						  <div class="subscribe-form margin-top-20">
-							 <input id="mc-email" type="email" placeholder="Email Address" class="text-input">
-							  <button class="submit-btn" type="submit">Submit</button>
-								</div>
-                                <p>Subscribe to my weekly newsletter</p>
-								<label for="mc-email" class="mc-label"></label>
-							  </form>
-                             
-                           </div>
-                           <!-- Subscribe Form End -->
+
                            
                          </div>
                      
@@ -209,28 +189,25 @@
                        <!-- Footer Start -->
                        <div class="col-md-12 page-body margin-top-50 footer">
                           <footer>
-                          <ul class="menu-link">
-                               <li><a href="index.html">Home</a></li>
-                               <li><a href="about.html">About</a></li>
-                               <li><a href="work.html">Work</a></li>
-                               <li><a href="contact.html">Contact</a></li>
-                            </ul>
+                             <ul class="menu-link">
+                               <li><a href="index.html">Create Post</a></li>
+                               <li><a href="about.html">Go To Profile Page</a></li>
+                               <li><a href="work.html">Log Out</a></li>
+                               
+                             </ul>
                             
-                          <p>© Copyright 2016 DevBlog. All rights reserved</p>
+                             <p>© Copyright 2017 Ahmed Elkafrawy</p>
 						  
-						  
-						  <!-- UiPasta Credit Start -->
-                          <div class="uipasta-credit">Design By <a href="http://www.uipasta.com" target="_blank">UiPasta</a></div>
-                          <!-- UiPasta Credit End -->
+			
 
                            
-                         </footer>
+                            </footer>
                        </div>
                        <!-- Footer End -->
                      
                      
                   </div>
-                  <!-- Blog Post (Right Sidebar) End -->
+           
                 
             </div>
          </div>

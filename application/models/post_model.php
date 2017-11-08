@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 
  * @extends CI_Model
  */
-class user_model extends CI_Model {
+class post_model extends CI_Model {
 
 	public function __construct() {
 		
@@ -15,16 +15,17 @@ class user_model extends CI_Model {
 	}
 	
         // insert user info in database
-	public function create_user($username, $email, $password) {
+	public function create_post($posttitle, $postbody, $postimage,$postuserid) {
 		
 		$data = array(
-			'username'   => $username,
-			'email'      => $email,
-			'password'   => $this->hash_password($password),
-			'created_at' => date('Y-m-j H:i:s'),
+			'post_title'   => $posttitle,
+			'post_body'    => $postbody,
+			'post_image'   => $postimage,
+			'post_date'      => date('Y-m-j H:i:s'),
+			'user_id'      => $postuserid
 		);
 		
-		return $this->db->insert('users', $data);
+		return $this->db->insert('posts', $data);
 		
 	}
 	
@@ -33,7 +34,7 @@ class user_model extends CI_Model {
 		
 		$this->db->select('password');
 		$this->db->from('users');
-		$this->db->where('email', $username);
+		$this->db->where('username', $username);
 		$hash = $this->db->get()->row('password');
 		
 		return $this->verify_password_hash($password, $hash);
