@@ -19,6 +19,7 @@
         </div>
     <?php endif; ?>
     
+    <a href="<?= base_url() ?>home">Home Page</a>
     <h2>Create Post</h2>
     <?php echo form_open_multipart('/insertpost');?>
         <div class="form-group">

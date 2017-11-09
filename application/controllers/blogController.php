@@ -7,6 +7,7 @@ class blogController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('post_model');
+        $this->load->model('blog_model');
         if(!$this->session->userdata('logged_in')){
             
             redirect("/register");
@@ -142,9 +143,9 @@ class blogController extends CI_Controller {
             
             $config['upload_path']          = './uploads/';
             $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 1000;
-            $config['max_width']            = 2024;
-            $config['max_height']           = 1068;
+            $config['max_size']             = 10000;
+            $config['max_width']            = 20244;
+            $config['max_height']           = 10688;
             
             $this->load->library('upload', $config);
            
@@ -188,5 +189,19 @@ class blogController extends CI_Controller {
 		}
 		
 	}
+        
+        // function to insert comment into database
+        public function insertcommant(){
+            
+            $comment = $this->input->post("comment");
+            $post_id = $this->input->post("post_id");
+            $user_id = $_SESSION['user_id'];
+            
+            if ($this->blog_model->create_comment($comment, $user_id, $post_id)){
+                
+                return "inserted";
+				
+	  }
+        }
 }
 

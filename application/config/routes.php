@@ -77,3 +77,6 @@ $route['displayimage'] = 'blogController/displayimage';
 
 // log out routing
 $route['logout'] = 'blogController/logout';
+
+
+$route["insertcommant"] = "blogController/insertcommant";

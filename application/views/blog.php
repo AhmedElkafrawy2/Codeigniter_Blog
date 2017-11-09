@@ -19,7 +19,7 @@
             
                          <div id="menu"  class="show_menu collapse">
                            <ul class="menu-link">
-                               <li><a href="about.html">Profile</a></li>
+                               
                                <li><a href="<?= base_url() ?>createpost">Make Post</a></li>
                                <li><a href="<?= base_url() ?>logout">Log Out</a></li>
                             </ul>
@@ -60,37 +60,79 @@
                             
                             <div class="col-md-12 content-page">
 
-                                    <?php foreach ($posts as $post){ ?>
+                                <?php foreach ($posts as $post){ ?>
                                 <!-- Blog Post Start -->
                                 <div class="col-md-12 blog-post">
-                                    <div class="post-title">
+                                    <div class="col-md-12 post-title">
                                       <a href="single.html"><h1><?= $post->post_title ?></h1></a> 
                                     </div>  
-                                    <div class="post-info">
+                                    <div class="col-md-12 post-info">
                                     	<span><?= $post->post_date ?> By 
                                             <a href="#" target="_blank">
                                             <?php echo $this->post_model->getpostnamefromid($post->user_id) ?>
                                             </a>
                                         </span>
                                     </div>  
-                                    <p><?= $post->post_body ?></p> 
+                                    <div class="col-md-12 post-body-div">
+                                        <p><?= $post->post_body ?></p>
+                                    </div>
                                     <?php if($post->post_image !== ""){ ?>
-                                    <img src="<?= $post->post_image  ?>" class="image-post" />
+                                    <div class="post-image-home col-md-12">
+                                        <img src="<?= $post->post_image  ?>" class="image-post-home" />
+                                    </div>
                                     <?php } ?>
-                                    <a href="single.html" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+                                    <input type="hidden" name="post_id" value="<?= $post->id ?>" />
+        
                                 </div>
                                 <!-- Blog Post End -->
+                                
+                                <!-- start comment section -->
+                  
+                                <div class="col-md-12 comments">
+                                    <div class="col-md-12 write-comment">
+                                        
+                                        
+                                        <input type="text" post_id="<?= $post->id ?>" name="write-comment-input" class="write-comment-input form-control" placeholder="write comment" />
+                                               
+                                    </div>
+                                    
+                                    <div class="comments-list col-md-12">
+                                        
+                                       
+                                        <ul class="list-of-comments colo-md-12" user_id="<?php $_SESSION['user_id'] ?>">
+                                        <?php  
+                                
+                                        $allcomments = $this->blog_model->getcomments($post->id);
+                                      
+                                        foreach ($allcomments as $comm){
+                                        ?>
+                                            <li class="col-md-12">
+                                                <span class="col-md-3">
+                                                    <?php echo $this->post_model->getpostnamefromid($comm->user_id) ?>
+                                                </span>
+                                                <p class="col-md-9"><?php echo $comm->comment ?></p>
+                                                   
+                                            </li>
+                                  <?php } ?>
+                                            
+                                        </ul>
+                                        
+                                    </div>
+                                </div>
+                                     
+                                <hr />
                                 <?php } ?>
                                 
-                                
+                                <!--
                                 <div class="col-md-12 text-center">
                                  <a href="javascript:void(0)" id="load-more-post" class="load-more-button">Load</a>
                                  <div id="post-end-message"></div>
                                 </div>
+                                -->
                                 
                              </div>
                               
-                         </div>
+                        
                          
                         
 
@@ -101,12 +143,7 @@
                        <!-- Footer Start -->
                        <div class="col-md-12 page-body margin-top-50 footer">
                           <footer>
-                             <ul class="menu-link">
-                               <li><a href="index.html">Create Post</a></li>
-                               <li><a href="about.html">Go To Profile Page</a></li>
-                               <li><a href="work.html">Log Out</a></li>
-                               
-                             </ul>
+             
                             
                              <p>© Copyright 2017 Ahmed Elkafrawy</p>
 						  

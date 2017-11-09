@@ -7,7 +7,7 @@
     
     display: block;
 }
-.image-post{
+.post-image-home img{
     
     width: 200px !important;
     height: 200px !important;
@@ -25,4 +25,35 @@
     
     width: 150px;
     height: 150px;
+}
+
+/* start write comment sectiion */
+
+.write-comment{
+    
+}
+.write-comment input{
+    
+    
+}
+
+.comments-list{
+    
+}
+.comments-list ul{
+    
+    list-style: none
+}
+.comments-list ul li{
+    
+    margin-top: 19px;margin-left: -51px;
+    
+    
+}
+.comments-list ul li span{
+    
+}
+.comments-list ul li p{
+    word-wrap: break-word;
+    background-color: #d4d4d3;
 }
