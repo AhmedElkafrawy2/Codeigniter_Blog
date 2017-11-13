@@ -87,7 +87,37 @@
                                 <!-- Blog Post End -->
                                 
                                 <!-- start comment section -->
-                  
+                                <div class="likes-div col-md-12">
+                                    <div class="col-md-12 perviouse-liks">
+                                       
+                                        <span class="you-like">
+                                            Number Of Likes
+                                            <?php 
+                                            
+                                            if($this->blog_model->numberoflikes($post->id) > 0){
+                                                
+                                                echo "<span class='last'>".$this->blog_model->numberoflikes($post->id)."</span>";
+                                            }else{
+                                             
+                                                echo "<span class='last'>0</span>";
+                                                        
+                                            }
+                                            
+                                            ?>
+                                            
+                                        </span>
+                                        
+                                    </div>
+                                    <div class="like-post-div col-md-12">
+                                        <span post_id_like="<?php echo $post->id ?>" is_like="<?php if($this->blog_model->authuserlike($post->id) > 0){ echo "Dislike"; }else{ echo "Like"; } ?>" class="like-post">
+                                            <?php if($this->blog_model->authuserlike($post->id) > 0){ ?>
+                                            Dislike
+                                           <?php }else{?>
+                                            Like
+                                           <?php } ?>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="col-md-12 comments">
                                     <div class="col-md-12 write-comment">
                                         
@@ -109,6 +139,7 @@
                                             <li class="col-md-12">
                                                 <span class="col-md-3">
                                                     <?php echo $this->post_model->getpostnamefromid($comm->user_id) ?>
+                                                    at <?php echo $comm->date ?>
                                                 </span>
                                                 <p class="col-md-9"><?php echo $comm->comment ?></p>
                                                    

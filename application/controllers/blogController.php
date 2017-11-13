@@ -203,5 +203,34 @@ class blogController extends CI_Controller {
 				
 	  }
         }
+        
+        // function to post like post into database
+        
+        public function likepost(){
+            
+            $post_id  = $this->input->post("post_id");
+            $like_dis = $this->input->post("is_like");
+            
+            //echo $like_dis;
+            
+            //echo  $like_dis;
+            //return;
+            
+            if($like_dis == "Like"){
+            
+                if($this->blog_model->postlike($post_id,$_SESSION['user_id'])){
+                echo "Like";
+                return;
+             }
+            }else{
+                
+                if($this->blog_model->removelike($post_id)){
+                echo "Dislike";
+                return;
+              }
+            }
+            
+            
+        }
 }
 
